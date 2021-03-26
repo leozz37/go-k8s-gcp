@@ -1,4 +1,4 @@
-# Golang + Kubernetes + GCP
+# Golang + Kubernetes + GCP + Terraform
 
 This project is an example of integrating multiple tools.
 
