@@ -10,4 +10,3 @@ We'll be seeing:
 - Kubernetes
 - Google Cloud Plataform (GCP)
 - GitHub Actions
-
