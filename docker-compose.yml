@@ -1,0 +1,15 @@
+version: "3.6"
+
+services:
+  api:
+    build: .
+    image: leozz37/go-k8s-gcp-terraform:latest
+    container_name: api
+    command: make prepare-env
+    environment:
+      DATABASE_HOST: ""
+      DATABASE_USER: "root"
+      DATABASE_PASS: "toor"
+      GIN_MODE: debug
+    ports:
+      - 8080:8080
