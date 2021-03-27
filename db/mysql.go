@@ -1,17 +1,24 @@
 package db
 
 import (
+	"fmt"
+	"os"
+
 	"example.com/medium/models"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
 
 var MySQL *gorm.DB
 
 func ConnectMySQL() {
-	database, err := gorm.Open("sqlite3", "test.db")
+	host := os.Getenv("DATABASE_HOST")
+	user := os.Getenv("DATABASE_USER")
+	pass := os.Getenv("DATABASE_PASS")
+
+	database, err := gorm.Open("mysql", fmt.Sprintf("%s:%s@tcp(%s:3306)/user", user, pass, host))
 	if err != nil {
-		panic("MYSQL: Couldn't connect to Database")
+		panic(err)
 	}
 
 	database.AutoMigrate(models.User{})

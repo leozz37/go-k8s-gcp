@@ -1,12 +1,25 @@
 package main
 
 import (
+	"log"
+
 	"example.com/medium/db"
 	"example.com/medium/handler"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
+func setEnv() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Println("No .env file found!")
+	}
+}
+
 func main() {
+	// Setting env variables
+	setEnv()
+
 	// Starting DB
 	db.ConnectMySQL()
 
