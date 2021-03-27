@@ -1,2 +1,5 @@
 # SQLite database
 test.db
+
+# Envionment variables
+.env
